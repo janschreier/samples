@@ -62,7 +62,7 @@ namespace COMRegistration
 
         private class OleAut32
         {
-            // https://docs.microsoft.com/windows/api/oleauto/ne-oleauto-regkind
+            // https://docs.microsoft.com/windows/win32/api/oleauto/ne-oleauto-regkind
             public enum REGKIND
             {
                 REGKIND_DEFAULT = 0,
@@ -70,14 +70,14 @@ namespace COMRegistration
                 REGKIND_NONE = 2
             }
 
-            // https://docs.microsoft.com/windows/api/oleauto/nf-oleauto-loadtypelibex
+            // https://docs.microsoft.com/windows/win32/api/oleauto/nf-oleauto-loadtypelibex
             [DllImport(nameof(OleAut32), CharSet = CharSet.Unicode, ExactSpelling = true)]
             public static extern int LoadTypeLibEx(
                 [In, MarshalAs(UnmanagedType.LPWStr)] string fileName,
                 REGKIND regKind,
                 out ComTypes.ITypeLib typeLib);
 
-            // https://docs.microsoft.com/windows/api/oleauto/nf-oleauto-unregistertypelib
+            // https://docs.microsoft.com/windows/win32/api/oleauto/nf-oleauto-unregistertypelib
             [DllImport(nameof(OleAut32))]
             public static extern int UnRegisterTypeLib(
                 ref Guid id,
